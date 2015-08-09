@@ -12,6 +12,9 @@
 		var _callback = callback || function(){};
 		var _text = text  || '喵~';
 		var _type = type || 'success';
+		if ($("#MoeNotification").length <= 0){
+			this.init();
+		}
 		$("#MoeNotification").append(
 			$("<div>").addClass('MoeNotification-notice')
 			          .addClass('MoeNotification-notice-' + _type)
@@ -82,7 +85,7 @@
 	this.init = function(){
 		$("body").append('<div id="MoeNotification"></div>');
 	}
-	if (!$("#MoeNotification").length>0){
+	if ($("#MoeNotification").length <= 0){
 		this.init();
 	}
 });
